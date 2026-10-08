@@ -2,13 +2,13 @@
 
 Адаптивный сайт мастера маникюра и админ-панель, подключённые к Supabase.
 
-Сайт: https://wehay322.github.io/anna-nail-artist/
+Сайт: https://wehay322.github.io/julia-masternails/
 
-Админ-панель: https://wehay322.github.io/anna-nail-artist/admin/
+Админ-панель: https://wehay322.github.io/julia-masternails/admin/
 
 ## Публикация
 
-GitHub Pages: Deploy from a branch → main → /(root). В исходниках уже учтён базовый путь /anna-nail-artist/. Для изменения имени репозитория обновите base в трёх HTML-файлах и проверку маршрута в app.js.
+GitHub Pages: Deploy from a branch → main → /(root). В исходниках уже учтён базовый путь /julia-masternails/. Для изменения имени репозитория обновите base в трёх HTML-файлах и проверку маршрута в app.js.
 
 ## Supabase
 

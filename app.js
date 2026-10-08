@@ -1,6 +1,7 @@
 import {defaults} from './data.js';import * as api from './api.js';
 const app=document.querySelector('#app');export const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));export const safeUrl=s=>/^(https?:\/\/|\/assets\/|data:image\/(png|jpeg|webp);base64,)/i.test(s||'')?(s.startsWith('/assets/')?new URL('.'+s,document.baseURI).href:s):'';
 let content=structuredClone(defaults);try{const loaded=await api.loadContent();if(loaded)content={...content,...loaded,labels:{...defaults.labels,...loaded.labels}}}catch(e){toast('Не удалось загрузить контент. Показана базовая версия.')}
+document.title=content.settings.title;
 export function toast(text){const t=document.querySelector('#toast');t.textContent=text;t.style.display='block';clearTimeout(window.toastTimeout);window.toastTimeout=setTimeout(()=>t.style.display='none',4000)}
 const icons={heart:'<path d="M12 21S2 15 2 8a5 5 0 0 1 10-1 5 5 0 0 1 10 1c0 7-10 13-10 13Z"/>',leaf:'<path d="M21 3C8 2 1 9 5 17s17 2 16-14Z"/><path d="m3 21 13-13"/>',star:'<path d="m12 2 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1Z"/>'};
 function brand(){const parts=content.brand.split('•');return parts.length===2?`${esc(parts[0])}<small> • ${esc(parts[1])}</small>`:esc(content.brand)}
